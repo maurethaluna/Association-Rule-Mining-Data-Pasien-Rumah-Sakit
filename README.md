@@ -1,2 +1,19 @@
-# Association-Rule-Mining-Data-Pasien-Rumah-Sakit
+# Association Rule Mining Data Pasien Rumah Sakit
 Menerapkan data preprocessing, feature selection, EDA, dan association rule mining pada data pasien rumah sakit, serta text preprocessing pada corona tweet publik, menghasilkan data bersih, cholesterol dan usia sebagai fitur paling signifikan, pola hubungan kolesterol, tekanan darah, dan keparahan penyakit, serta kata kunci dominan covid dan price
+
+Berdasarkan hasil analisis data mining yang telah dilakukan pada dua dataset, diperoleh beberapa kesimpulan sebagai berikut:
+1. Dataset Rumah Sakit Pasien
+Proses data preprocessing berhasil meningkatkan kualitas data dengan menangani missing values, menormalkan format, dan menjaga konsistensi
+antarvariabel. Hasil feature selection menggunakan metode Random Forest menunjukkan bahwa variabel Cholesterol (0,398) dan Age (0,378) merupakan fitur paling berpengaruh dalam memprediksi kondisi kesehatan pasien. Selanjutnya, penerapan Principal Component Analysis (PCA) mampu mereduksi dimensi dari 4 fitur menjadi 2 komponen utama yang menjelaskan 75,01% total varians. Meskipun PCA berhasil mengidentifikasi pola-pola ini, pendekatan yang lebih baik adalah mempertahankan keempat variabel asli bersama dengan komponen utama yang dihasilkan. Hal ini dikarenakan variabel asli seperti usia, kolesterol, dan tekanan darah memiliki interpretasi yang jelas sehingga memudahkan dalam memahami hasil analisis.
+Selain itu, setiap variabel membawa informasi spesifik yang mungkin tidak sepenuhnya terwakili dalam komponen utama, seperti fluktuasi kolesterol individual yang dapat tertutup oleh pola umum dalam PC2. Analisis Association Rule Mining dengan parameter min_support = 0,03, min_confidence = 0,6, dan min_lift = 1,1 menghasilkan 244 aturan asosiasi yang bermakna, antara lain pasien dengan kolesterol normal cenderung memiliki kondisi "TIDAK PARAH" (confidence = 77,86%, lift = 1,75), pasien dengan kondisi "SEDANG" umumnya memiliki kolesterol tinggi (confidence = 77,10%, lift = 1,81), serta kombinasi kolesterol normal dan tekanan darah Stage 1 memiliki lift tertinggi, yaitu 2,24.
+
+2. Dataset Corona Tweet Publik
+Tahapan text preprocessing berhasil membersihkan data teks dari noise, simbol, serta karakter tidak relevan, sehingga kualitas data untuk analisis lebih optimal. Hasil analisis TF-IDF menunjukkan kata-kata kunci dominan yang berbeda tergantung metode pembobotan yang digunakan, yaitu pada TFIDF_raw kata dominan adalah “price” (6480,82), pada TFIDF_binary dan TFIDF_log kata dominan adalah “covid” (6213,56 dan 6318,82), sedangkan pada TFIDF_aug kata dominan adalah “year” (34.947,38), mencerminkan fokus topik yang berbeda di setiap varian TF-IDF.
+
+3. Kesimpulan Umum
+Secara keseluruhan, penerapan berbagai teknik data mining seperti preprocessing, feature selection, dimensionality reduction, association rule mining, dan text mining terbukti mampu mengungkap pola-pola tersembunyi serta hubungan asosiatif yang relevan. Temuan ini berpotensi mendukung proses pengambilan keputusan klinis dan meningkatkan efektivitas manajemen pasien.
+
+SARAN
+Berdasarkan hasil penelitian yang telah dilakukan, disarankan agar penelitian selanjutnya dapat menggunakan data yang lebih luas dan bervariasi agar hasil analisis menjadi lebih akurat. Proses pengolahan dan pembersihan data juga perlu dilakukan dengan lebih teliti agar tidak ada informasi penting yang terlewat. Selain itu, metode analisis lain dapat dicoba untuk melihat perbandingan hasil dan menemukan pendekatan yang paling sesuai dengan karakteristik data yang digunakan.
+
+Penelitian selanjutnya juga diharapkan dapat mengembangkan hasil analisis ini agar lebih bermanfaat secara praktis. Dengan pengembangan yang berkelanjutan, diharapkan analisis data seperti ini dapat membantu dalam pengambilan keputusan dan peningkatan kualitas layanan di berbagai bidang.
